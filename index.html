@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jQuery CDN links. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<!-- Bootstrap CDN links. -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  	<!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
 	<title>PikyFilm</title>
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="row text-center">
+			<h1>PikyFilm</h1>
+		</div>
+	</div>
 
+	<div class="container">
+		<div class="row">
+		  <div class="col-md-12">
+			<form>
+				<div class="form-group">
+					<label for="user-name">Name</label>
+					<input type="text" class="form-control" id="user-name" value="Guest">
+				</div>
+				<div class="form-group">
+					<label for="input-picture">Upload picture</label>
+					<input type="file" id="input-picture">
+					<p class="help-block">Format (.jpg, .png, .jpeg)</p>
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		  </div>
+		</div>
+	</div>
 </body>
 </html>
