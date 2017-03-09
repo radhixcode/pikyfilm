@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- jQuery CDN links. -->
+	<!-- jQuery CDN link. -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-	<!-- Bootstrap CDN links. -->
+	<!-- Bootstrap CDN link. -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   	<!-- Firebase Reference -->
@@ -18,29 +18,50 @@
 	<title>PikyFilm</title>
 </head>
 <body>
+
+	<!-- Title of the the web site -->
 	<div class="container-fluid">
 		<div class="row text-center">
 			<h1>PikyFilm</h1>
 		</div>
+	
+		<!-- Section to upload image -->
+		<div class="row">
+			<div class="col-md-3 col-md-offset-2 text-center image-section ">
+				<img class="img-responsive" id="image" >
+			</div>
+
+			<div class="col-md-3 file-upload-section">
+				<form id="image-form">
+					<div class="form-group">
+						<label for="input-picture">Upload a picture</label>
+						<input type="file" accept='image/*' id="input-picture">	
+						<div id="progressbar"></div>		
+					</div>
+
+					<p class="help-block message">Format (.jpg, .png, .jpeg) | Size max 2MB</p>
+
+					<button type="submit" id="submit-pic" class="btn btn-success btn-sm">Submit</button>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Section to display movie results -->
+		<div class="row">
+			
+		</div>
+		
+		<!-- Section for displaying map -->
+		<div class="row">
+			
+		</div>
+	
+		<!-- Footer, copyright. -->
+		<footer class="row text-center">
+			<p>Copyright &copy; 2017 REMY Inc.</p>
+		</footer>
 	</div>
 
-	<div class="container">
-		<div class="row">
-		  <div class="col-md-12">
-			<form>
-				<div class="form-group">
-					<label for="user-name">Name</label>
-					<input type="text" class="form-control" id="user-name" value="Guest">
-				</div>
-				<div class="form-group">
-					<label for="input-picture">Upload picture</label>
-					<input type="file" id="input-picture">
-					<p class="help-block">Format (.jpg, .png, .jpeg)</p>
-				</div>
-				<button type="submit" id="submit-pic" class="btn btn-default">Submit</button>
-			</form>
-		  </div>
-		</div>
-	</div>
+	<script type="text/javascript" src="assets/javascript/pikyfilm.js" ></script>
 </body>
 </html>
