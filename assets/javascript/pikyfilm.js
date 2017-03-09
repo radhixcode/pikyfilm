@@ -77,70 +77,58 @@ function movieQuery(year) {
 
     // ajax call #1 to get the main information
     $.ajax({
-    url: tmdbURL,
-    method: "GET"
+        url: tmdbURL,
+        method: "GET"
     }).done(function(tmdbData) {
 
         // ajax call #2 needed to retrieve movie poster base url, not given in first request
         $.ajax({
-        url: "https://api.themoviedb.org/3/configuration?api_key=bc03fb2028c35ec867a969e54345b8a6",
-        method: "GET"
+            url: "https://api.themoviedb.org/3/configuration?api_key=bc03fb2028c35ec867a969e54345b8a6",
+            method: "GET"
         }).done(function(tmdbIMG){
 
             // loops through the five responses that we want
             for (var i = 0; i < 5; i++) {
 
-            // value used from movie div ids
-            movieCounter++;
+                // value used from movie div ids
+                movieCounter++;
 
-            // creates a div, names it based on the movieCounter value, appends it into the html
-            var movie = $("<div>")
-            movie.addClass("movieDiv");
-            movie.attr("id", "movie-num-" + movieCounter);
-            $("#movie-display").append(movie);
+                // creates a div, names it based on the movieCounter value, appends it into the html
+                var movie = $("<div>")
+                movie.addClass("movieDiv clearfix");
+                movie.attr("id", "movie-num-" + movieCounter);
+                $("#movie-display").append(movie);
 
-            // check if the response.doc[i] object exists
-            if(tmdbData.results[i] !== undefined){  
+                // check if the response.doc[i] object exists
+                if(tmdbData.results[i] !== undefined){  
 
-                // If there is a title... appends it to the appropriate div
-                if (tmdbData.results[i].title !== null) {
-                    $("#movie-num-" + movieCounter)
-                        .append("<h2>" + tmdbData.results[i].title + "</h2>");
-                }
+                    // If there is a title... appends it to the appropriate div
+                    if (tmdbData.results[i].title !== null) {
+                        $("#movie-num-" + movieCounter)
+                            .append("<h2>" + tmdbData.results[i].title + "</h2>");
+                    }
 
-                // If there is an overview... appends it to the appropriate div
-                if (tmdbData.results[i].overview !== null) {
-                    $("#movie-num-" + movieCounter)
-                        .append("<p>" + tmdbData.results[i].overview + "</p>");
-                }
+                    // If there is a movie poster... appends it to the appropriate div
+                    if (tmdbData.results[i].poster_path !== null) {
+                        $("#movie-num-" + movieCounter)
+                            // the base url and size data are pulled from the second ajax request
+                            .append("<img class='pull-left movie-image' src=" + tmdbIMG.images.base_url + "w185" + tmdbData.results[i].poster_path + ">");
+                    }
 
-                // If there is a release date... appends it to the appropriate div
-                if (tmdbData.results[i].release_date !== null) {
-                    $("#movie-num-" + movieCounter)
-                        .append("<p>" + tmdbData.results[i].release_date + "</p>");
-                }
+                    // If there is a release date... appends it to the appropriate div
+                    if (tmdbData.results[i].release_date !== null) {
+                        $("#movie-num-" + movieCounter)
+                            .append("<p><strong>Release Date: </strong>" + tmdbData.results[i].release_date + "</p>");
+                    } 
 
-                // If there is a movie poster... appends it to the appropriate div
-                if (tmdbData.results[i].poster_path !== null) {
-                    $("#movie-num-" + movieCounter)
-                        // the base url and size data are pulled from the second ajax request
-                        .append("<img src=" + tmdbIMG.images.base_url + "w185" + tmdbData.results[i].poster_path + ">");
-                }                       
-
-            }           
-
-            console.log("-------------------------------");
-            console.log(tmdbData.results[i].title);
-            console.log(tmdbData.results[i].overview);
-            console.log(tmdbData.results[i].release_date);
-            console.log(tmdbData.results[i].poster_path);
-
-        }
-        
-        console.log("-------------------------------");
-        console.log(tmdbData.results);
-        console.log(tmdbIMG);
-        console.log(tmdbIMG.images.base_url);
+                    // If there is an overview... appends it to the appropriate div
+                    if (tmdbData.results[i].overview !== null) {
+                        $("#movie-num-" + movieCounter)
+                            .append("<p><strong>Overview : </strong>" + tmdbData.results[i].overview + "</p>");
+                    }                                         
+                }  
+                $("#movie-display").append('<hr>');                 
+            }
 
         });
 
