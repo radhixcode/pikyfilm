@@ -5,16 +5,40 @@ var imageSizeOk;
 //Function to display the image.
 function readFile(input) {
 
-    // If the input is a file. Set path to the src of image tag id for displaying image. 
+    // If the input is a file. 
     if (input.files && input.files[0]) {
 
+        // Read file. Set path to the src of image tag id for displaying image. 
         var reader = new FileReader();
-        
-        reader.onload = function () {
-            $('#image').attr('src', reader.result);         
-        }        
         reader.readAsDataURL(input.files[0]);
+        
+        reader.onload = function (event) {
+            $('#image').attr('src', event.target.result);         
+        }               
     }
+}
+
+// Function to convert image data to blob.
+var makeblob = function (dataURL) {
+    var BASE64_MARKER = ';base64,';
+    if (dataURL.indexOf(BASE64_MARKER) == -1) {
+        var parts = dataURL.split(',');
+        var contentType = parts[0].split(':')[1];
+        var raw = decodeURIComponent(parts[1]);
+        return new Blob([raw], { type: contentType });
+    }
+    var parts = dataURL.split(BASE64_MARKER);
+    var contentType = parts[0].split(':')[1];
+    var raw = window.atob(parts[1]);
+    var rawLength = raw.length;
+
+    var uInt8Array = new Uint8Array(rawLength);
+
+    for (var i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i);
+    }
+
+    return new Blob([uInt8Array], { type: contentType });
 }
 
 // While uploading the image.
@@ -54,11 +78,25 @@ $("#submit-pic").on("click", function(event){
 
 	var imageName = $("#input-picture").val();
 
-    //If the image selected and in correct format and size then submit the form.
+    //If the image selected and in correct format and size.
 	if(imageName){	
 	    if(imageFormatOk === 1 && imageSizeOk === 1) {
 	        $('.message').removeClass("error").html("Sending...");
-	        // $("#image-form").submit();
+	        
+            //Get uploaded file attributes and read the content of file
+            var input = $("#input-picture")[0].files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(input);
+            
+            reader.onload = function (event) {
+
+                //Get image data, convert to blob
+                var imageData = event.target.result; 
+                var imageBlob = makeblob(imageData);
+
+                //  Call function for API call with this argument
+                // detectFaceAge(imageBlob);     
+            }
 	    }
     }else{
     	$('.message').addClass("error").html("Upload an image");
