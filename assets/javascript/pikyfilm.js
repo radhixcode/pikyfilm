@@ -244,7 +244,32 @@ var IpQueryUrl = "http://ip-api.com/json";
             var country = response.country;
             console.log(city);
             console.log(country);
+            send2database(city,country);
 
        });
 }
 
+//Yousra Elbanna
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAMc3QdtNtFggkRn5pMeE5ddn3XB-1Mhe4",
+    authDomain: "pikyfilm-db-1488918750397.firebaseapp.com",
+    databaseURL: "https://pikyfilm-db-1488918750397.firebaseio.com",
+    storageBucket: "pikyfilm-db-1488918750397.appspot.com",
+    messagingSenderId: "313537021654"
+  };
+
+  firebase.initializeApp(config);
+
+//Yousra Elbanna
+//We pass the city& country of user to this function to push in firebase database
+function send2database(userCity,userCountry){
+
+  // Create a variable to reference the database
+
+var userdata = firebase.database();
+ userdata.ref().set({
+      city: userCity,
+      country: userCountry
+    });
+}
