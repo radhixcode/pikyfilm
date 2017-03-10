@@ -1,7 +1,17 @@
 var imageFormatOk;
 var imageSizeOk;
 
-// Radhika Sivarajan
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAMc3QdtNtFggkRn5pMeE5ddn3XB-1Mhe4",
+    authDomain: "pikyfilm-db-1488918750397.firebaseapp.com",
+    databaseURL: "https://pikyfilm-db-1488918750397.firebaseio.com",
+    storageBucket: "pikyfilm-db-1488918750397.appspot.com",
+    messagingSenderId: "313537021654"
+};
+
+firebase.initializeApp(config);
+
 //Function to display the image.
 function readFile(input) {
 
@@ -19,7 +29,7 @@ function readFile(input) {
 }
 
 // Function to convert image data to blob.
-var makeblob = function (dataURL) {
+var makeBlob = function (dataURL) {
     var BASE64_MARKER = ';base64,';
     if (dataURL.indexOf(BASE64_MARKER) == -1) {
         var parts = dataURL.split(',');
@@ -41,69 +51,6 @@ var makeblob = function (dataURL) {
     return new Blob([uInt8Array], { type: contentType });
 }
 
-// While uploading the image.
-$("#input-picture").change(function(){
-
-	$('.message').removeClass("error").html("Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
-    
-    // Get the file name and take the format (letters after '.') and convert to uppercase   
-    var imageName = $("#input-picture").val();
-    var extension = imageName.split('.').pop().toUpperCase();
-
-    //If the format is not PNG JPG or JPEG and file name is empty throw an error message
-    if((imageName.length < 1)||(extension!="PNG" && extension!="JPG" && extension!="JPEG" && extension!="GIF" && extension!="BMP")) {
-        imageFormatOk = 0;
-        $('.message').addClass("error").html("Image format should be in PNG, JPG, JPEG, GIF or BMP");
-    }
-    //If image in desired format check the size.
-    else {
-        imageFormatOk = 1;
-
-        // If size is below 2MB (2e+6MB) call function to read the file, else throw error message.
-        if ((this.files[0].size)<2e+6) {
-        	imageSizeOk = 1;
-        	readFile(this);        	
-        }else{
-        	imageSizeOk = 0;
-        	$('.message').addClass("error").html("Size should be less than 2MB");
-        }  
-    }
-
-});
-
-// When click submit button sent the image for further functions
-$("#submit-pic").on("click", function(event){
-	
-	event.preventDefault();
-
-	var imageName = $("#input-picture").val();
-
-    //If the image selected and in correct format and size.
-	if(imageName){	
-	    if(imageFormatOk === 1 && imageSizeOk === 1) {
-	        $('.message').removeClass("error").html("Sending...");
-	        
-            //Get uploaded file attributes and read the content of file
-            var input = $("#input-picture")[0].files[0];
-            var reader = new FileReader();
-            reader.readAsDataURL(input);
-            
-            reader.onload = function (event) {
-
-                //Get image data, convert to blob
-                var imageData = event.target.result; 
-                var imageBlob = makeblob(imageData);
-
-                //  Call function for API call with this argument
-                 Face2Age(imageBlob);
-                 getip();     
-            }
-	    }
-    }else{
-    	$('.message').addClass("error").html("Upload an image");
-    }
-
-});
 
 // Yousra elbanna & minhtuyenmai
 //function to send the picture to the Face api and return age
@@ -125,7 +72,6 @@ function Face2Age(imageDataBlob){
 
     }).done(function(response) {
 
-
       if(response.length > 0){
         console.log("Number of faces :" + response.length);
         var age = response["0"].faceAttributes.age;
@@ -138,7 +84,7 @@ function Face2Age(imageDataBlob){
         
         }
       else{
-        $("#age-display").html("No faces detected");
+        $('.message').addClass("error").html("No faces detected");
       }         
 
     }).fail(function() {
@@ -150,8 +96,7 @@ function Face2Age(imageDataBlob){
 
 //Yousra Elbanna
 //function to get year of birth given age
-
- function Age2Year(photoage) {
+function Age2Year(photoage) {
     
     var date= new Date();
     var currentYear = date.getFullYear();
@@ -235,41 +180,95 @@ function movieQuery(year) {
 //Yousra Elbanna
 //function using ip-api to capture user ip and return city & country
 function getip(){
-var IpQueryUrl = "http://ip-api.com/json";
- $.ajax({
-          url: IpQueryUrl,
-           method: "GET"
-         }).done(function(response) {
-            var city = response.city;
-            var country = response.country;
-            console.log(city);
-            console.log(country);
-            send2database(city,country);
-
-       });
+    var IpQueryUrl = "http://ip-api.com/json";
+    $.ajax({
+        url: IpQueryUrl,
+        method: "GET"
+    }).done(function(response) {
+        var city = response.city;
+        var country = response.country;
+        console.log(city);
+        console.log(country);
+        send2database(city,country);
+    });
 }
-
-//Yousra Elbanna
-// Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAMc3QdtNtFggkRn5pMeE5ddn3XB-1Mhe4",
-    authDomain: "pikyfilm-db-1488918750397.firebaseapp.com",
-    databaseURL: "https://pikyfilm-db-1488918750397.firebaseio.com",
-    storageBucket: "pikyfilm-db-1488918750397.appspot.com",
-    messagingSenderId: "313537021654"
-  };
-
-  firebase.initializeApp(config);
 
 //Yousra Elbanna
 //We pass the city& country of user to this function to push in firebase database
 function send2database(userCity,userCountry){
 
-  // Create a variable to reference the database
-
-var userdata = firebase.database();
- userdata.ref().push({
-      city: userCity,
-      country: userCountry
+    // Create a variable to reference the database
+    var userdata = firebase.database();
+    userdata.ref().push({
+        city: userCity,
+        country: userCountry
     });
 }
+
+
+// While uploading the image.
+$("#input-picture").change(function(){
+
+    $('.message').removeClass("error").html("Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
+    
+    // Get the file name and take the format (letters after '.') and convert to uppercase   
+    var imageName = $("#input-picture").val();
+    var extension = imageName.split('.').pop().toUpperCase();
+
+    //If the format is not PNG JPG or JPEG and file name is empty throw an error message
+    if((imageName.length < 1)||(extension!="PNG" && extension!="JPG" && extension!="JPEG" && extension!="GIF" && extension!="BMP")) {
+        imageFormatOk = 0;
+        $('.message').addClass("error").html("Image format should be in PNG, JPG, JPEG, GIF or BMP");
+    }
+    //If image in desired format check the size.
+    else {
+        imageFormatOk = 1;
+
+        // If size is below 2MB (2e+6MB) call function to read the file, else throw error message.
+        if ((this.files[0].size)<2e+6) {
+            imageSizeOk = 1;
+            readFile(this);         
+        }else{
+            imageSizeOk = 0;
+            $('.message').addClass("error").html("Size should be less than 2MB");
+        }  
+    }
+});
+
+// When click submit button sent the image for further functions
+$("#submit-pic").on("click", function(event){
+    
+    event.preventDefault();
+
+    //Empty result display section
+    $("#movie-display").empty();
+    $("#age-display").empty();
+    $("#birth-year").empty();
+
+    var imageName = $("#input-picture").val();
+
+    //If the image selected and in correct format and size.
+    if(imageName){  
+        if(imageFormatOk === 1 && imageSizeOk === 1) {
+            $('.message').removeClass("error").html("Sending...");
+            
+            //Get uploaded file attributes and read the content of file
+            var input = $("#input-picture")[0].files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(input);
+            
+            reader.onload = function (event) {
+
+                //Get image data, convert to blob
+                var imageData = event.target.result; 
+                var imageBlob = makeBlob(imageData);
+
+                //  Call function for API call with this argument
+                Face2Age(imageBlob);
+                getip();     
+            }
+        }
+    }else{
+        $('.message').addClass("error").html("Upload an image");
+    }
+});
