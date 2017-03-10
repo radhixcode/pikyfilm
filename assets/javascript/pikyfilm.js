@@ -95,7 +95,7 @@ $("#submit-pic").on("click", function(event){
                 var imageBlob = makeblob(imageData);
 
                 //  Call function for API call with this argument
-                // detectFaceAge(imageBlob);     
+                 Face2Age(imageBlob);     
             }
 	    }
     }else{
@@ -103,6 +103,63 @@ $("#submit-pic").on("click", function(event){
     }
 
 });
+
+// Yousra elbanna & minhtuyenmai
+//function to send the picture to the Face api and return age
+function Face2Age(imageDataBlob){
+   
+ var params = {
+      "returnFaceId": "true",
+      "returnFaceAttributes": "age",
+  };
+    $.ajax({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/octet-stream",
+        "Ocp-Apim-Subscription-Key": "0ef6103744a14f9591f2708a965373b3"
+      },
+      url: "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),
+      processData:false,
+      data: imageDataBlob
+
+    }).done(function(response) {
+
+
+      if(response.length > 0){
+        console.log("Number of faces :" + response.length);
+        var age = response["0"].faceAttributes.age;
+            $("#age-display").html("Your age is :" + age);
+        Age2Year(age);
+        // for(var j=0; j<response.length; j++){
+        //     var age[j] = response["j"].faceAttributes.age;
+        //     $("#age-display").html("Your age is :" + age[j]);
+        // }
+        
+        }
+      else{
+        $("#age-display").html("No faces detected");
+      }         
+
+    }).fail(function() {
+       alert("error");            
+    });
+  
+  }
+
+
+//Yousra Elbanna
+//function to get year of birth given age
+
+ function Age2Year(photoage) {
+    
+    var date= new Date();
+    var currentYear = date.getFullYear();
+    var age1 = Math.floor(photoage);
+    var birthYear= currentYear - age1;
+    $("#birth-year").html("Your Birth Year is: " + birthYear);
+    movieQuery(birthYear);
+}
+
 
 // Erin Glabe
 // function to take the birth year and request movies from that year
@@ -174,4 +231,4 @@ function movieQuery(year) {
 
 }
 
-movieQuery(1990);
+//movieQuery(1990);
