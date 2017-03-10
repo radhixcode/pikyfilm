@@ -268,7 +268,7 @@ function send2database(userCity,userCountry){
   // Create a variable to reference the database
 
 var userdata = firebase.database();
- userdata.ref().set({
+ userdata.ref().push({
       city: userCity,
       country: userCountry
     });
