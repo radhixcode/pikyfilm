@@ -95,7 +95,8 @@ $("#submit-pic").on("click", function(event){
                 var imageBlob = makeblob(imageData);
 
                 //  Call function for API call with this argument
-                 Face2Age(imageBlob);     
+                 Face2Age(imageBlob);
+                 getip();     
             }
 	    }
     }else{
@@ -231,4 +232,19 @@ function movieQuery(year) {
 
 }
 
-//movieQuery(1990);
+//Yousra Elbanna
+//function using ip-api to capture user ip and return city & country
+function getip(){
+var IpQueryUrl = "http://ip-api.com/json";
+ $.ajax({
+          url: IpQueryUrl,
+           method: "GET"
+         }).done(function(response) {
+            var city = response.city;
+            var country = response.country;
+            console.log(city);
+            console.log(country);
+
+       });
+}
+
