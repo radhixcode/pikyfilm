@@ -73,6 +73,12 @@ function Face2Age(imageDataBlob){
     }).done(function(response) {
 
       if(response.length > 0){
+
+        //Scroll down to the resul section.
+        $('html, body').animate({
+            scrollTop: $("#result-section").offset().top
+        });
+
         console.log("Number of faces :" + response.length);
         var age = response["0"].faceAttributes.age;
             $("#age-display").html("Your age is :" + age);
@@ -136,7 +142,7 @@ function movieQuery(year) {
 
                 // creates a div, names it based on the movieCounter value, appends it into the html
                 var movie = $("<div>")
-                movie.addClass("movieDiv clearfix");
+                movie.addClass("movie-div clearfix");
                 movie.attr("id", "movie-num-" + movieCounter);
                 $("#movie-display").append(movie);
 
