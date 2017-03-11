@@ -164,8 +164,9 @@ function movieQuery(year) {
 
                     // If there is a release date... appends it to the appropriate div
                     if (tmdbData.results[i].release_date !== null) {
+                        var convertedDate = moment(tmdbData.results[i].release_date).format("MMM DD, YYYY");
                         $("#movie-num-" + movieCounter)
-                            .append("<p><strong>Release Date: </strong>" + tmdbData.results[i].release_date + "</p>");
+                            .append("<p><strong>Release Date: </strong>" + convertedDate + "</p>");
                     } 
 
                     // If there is an overview... appends it to the appropriate div
