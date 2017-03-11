@@ -152,7 +152,7 @@ function movieQuery(year) {
                     // If there is a title... appends it to the appropriate div
                     if (tmdbData.results[i].title !== null) {
                         $("#movie-num-" + movieCounter)
-                            .append("<h2>" + tmdbData.results[i].title + "</h2>");
+                            .append("<h3 class='movie-title'>" + tmdbData.results[i].title + "</h3>");
                     }
 
                     // If there is a movie poster... appends it to the appropriate div
