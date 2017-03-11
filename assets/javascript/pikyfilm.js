@@ -135,14 +135,14 @@ function movieQuery(year) {
         }).done(function(tmdbIMG){
 
             // loops through the five responses that we want
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 6; i++) {
 
                 // value used from movie div ids
                 movieCounter++;
 
                 // creates a div, names it based on the movieCounter value, appends it into the html
                 var movie = $("<div>")
-                movie.addClass("movie-div clearfix");
+                movie.addClass("movie-div text-left");
                 movie.attr("id", "movie-num-" + movieCounter);
                 $("#movie-display").append(movie);
 
@@ -174,7 +174,7 @@ function movieQuery(year) {
                             .append("<p><strong>Overview : </strong>" + tmdbData.results[i].overview + "</p>");
                     }                                         
                 }  
-                $("#movie-display").append('<hr>');                 
+                            
             }
 
         });

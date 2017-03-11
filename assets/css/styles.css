@@ -12,5 +12,30 @@
 }
 
 .movie-image {
-	margin-right: 20px;
+	margin-right: 10px;
+}
+
+.movie-div {
+	overflow: scroll;
+	height: 410px;
+	border-radius: 3%;
+	width: 30%;
+	border: black 1px solid;
+	margin: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	display: inline-block;
+}
+
+@media screen and (max-width: 991px) {
+	.movie-div {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.movie-div {
+		width: 95%;
+	}
 }
