@@ -52,9 +52,8 @@ var makeBlob = function (dataURL) {
 }
 
 
-// Yousra elbanna & minhtuyenmai
-//function to send the picture to the Face api and return age
-function Face2Age(imageDataBlob){
+//function to send image data to the Face api and return age
+function DetectAgeFromImageData(imageDataBlob){
    
  var params = {
       "returnFaceId": "true",
@@ -82,7 +81,7 @@ function Face2Age(imageDataBlob){
         console.log("Number of faces :" + response.length);
         var age = response["0"].faceAttributes.age;
             $("#age-display").html("Your age is :" + age);
-        Age2Year(age);
+        ConvertAgeToBirthYear(age);
         // for(var j=0; j<response.length; j++){
         //     var age[j] = response["j"].faceAttributes.age;
         //     $("#age-display").html("Your age is :" + age[j]);
@@ -100,9 +99,8 @@ function Face2Age(imageDataBlob){
   }
 
 
-//Yousra Elbanna
 //function to get year of birth given age
-function Age2Year(photoage) {
+function ConvertAgeToBirthYear(photoage) {
     
     var date= new Date();
     var currentYear = date.getFullYear();
@@ -113,7 +111,6 @@ function Age2Year(photoage) {
 }
 
 
-// Erin Glabe
 // function to take the birth year and request movies from that year
 function movieQuery(year) {
 
@@ -184,25 +181,20 @@ function movieQuery(year) {
 
 }
 
-//Yousra Elbanna
 //function using ip-api to capture user ip and return city & country
-function getip(){
+function CaptureUserIp(){
     var IpQueryUrl = "http://ip-api.com/json";
     $.ajax({
         url: IpQueryUrl,
         method: "GET"
     }).done(function(response) {
         var city = response.city;
-        var country = response.country;
-        console.log(city);
-        console.log(country);
-        send2database(city,country);
+        logCityToDatabase(city);
     });
 }
 
-//Yousra Elbanna
-//We pass the city& country of user to this function to push in firebase database
-function send2database(userCity,userCountry){
+//Pass the city of user to the firebase database
+function logCityToDatabase(userCity){
 
     // Create a variable to reference the database
     var userdata = firebase.database();
@@ -271,8 +263,8 @@ $("#submit-pic").on("click", function(event){
                 var imageBlob = makeBlob(imageData);
 
                 //  Call function for API call with this argument
-                Face2Age(imageBlob);
-                getip();     
+                DetectAgeFromImageData(imageBlob);
+                CaptureUserIp();     
             }
         }
     }else{
