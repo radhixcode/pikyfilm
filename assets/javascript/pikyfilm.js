@@ -1,5 +1,6 @@
 var imageFormatOk;
 var imageSizeOk;
+var map;
 
 // Initialize Firebase
 var config = {
@@ -11,6 +12,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
+data = firebase.database();
 
 //Function to display the image.
 function readFile(input) {
@@ -202,6 +204,43 @@ function logCityToDatabase(userCity){
     updateData[userCity] = true;
     userdata.ref().child('cities').update(updateData);    
 }
+
+//Initiate and render Google Map
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 0,
+            center: new google.maps.LatLng(2.8, -187.3),
+            mapTypeId: 'terrain'
+        });
+}
+
+//Retrieve city names from DB and send for conversion into Map Coordinates
+data.ref().child("cities").on("value", function(snapshot) {
+        var data = snapshot.val();
+        console.log(data);
+        for(prop in data) {
+          cityNameToCoordinates(prop);
+        }      
+    });
+
+//Geocode Api- Convert city names to coordinates for Map visualization
+function cityNameToCoordinates(address){
+        $.get("https://maps.googleapis.com/maps/api/geocode/json", {
+                address: address,
+                key: "AIzaSyBnZmjC7S9PqTw3oP8TRWdnySKzt3a1s74"
+        })
+        .done(function(data) {
+            var location = data.results[0].geometry.location;
+            addMarkerByLocation(map, location);
+        });
+    }
+//get location coordinates and draw markers on Goggle Map
+function addMarkerByLocation(map, location) {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
 
 
 // While uploading the image.

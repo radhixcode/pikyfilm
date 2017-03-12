@@ -8,12 +8,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 	<!-- Link to Moment.js -->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-	<!-- Google maps Api link. -->
-	<!-- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZmjC7S9PqTw3oP8TRWdnySKzt3a1s74&callback=initMap">
-    </script> -->
 
 	<!-- Bootstrap CDN link. -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -81,8 +77,12 @@
 		
 		<!-- Section for displaying map -->
 		<div class="row">
+        <div id="map"
+             class="hidden-xs hidden-sm" 
+             style="width:400px;height:200px;float: right; margin-right: 20px;margin-top: 30px;">
+            </div>      
+	</div>
 
-		</div>
 	
 		<!-- Footer, copyright. -->
 		<footer class="row text-center">
@@ -91,5 +91,10 @@
 	</div>
 
 	<script type="text/javascript" src="assets/javascript/pikyfilm.js" ></script>
+
+	<!-- Google maps Api link. -->
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZmjC7S9PqTw3oP8TRWdnySKzt3a1s74&callback=initMap"></script>
+	
 </body>
 </html>
