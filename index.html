@@ -31,23 +31,29 @@
 			<h1>PikyFilm</h1>
 		</div>
 	
-		<!-- Section to upload image -->
-		<div class="row">
-			<div class="col-md-3 col-md-offset-2 text-center image-section ">
+		<!-- Section to upload and display image -->
+		<div class="row text-center file-upload-section">
+			<div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 col-lg-offset-2 text-center image-section ">
 				<img class="img-responsive" id="image" >
 			</div>
 
-			<div class="col-md-3 file-upload-section">
+			<div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 select-file">
 				<form id="image-form">
 					<div class="form-group">
-						<label for="input-picture">Upload a picture</label>
-						<input type="file" accept='image/*' id="input-picture">	
-						<div id="progressbar"></div>		
+			            <label for="input-picture">Upload a picture</label><br><br>
+			            <div class="input-group">              
+			                <label class="input-group-btn">
+			                    <span class="btn btn-primary">
+			                        Browse&hellip; <input type="file" style="display: none;" accept='image/*' id="input-picture">
+			                    </span>
+			                </label>
+			                <input type="text" class="form-control file-name" readonly>
+			            </div>
 					</div>
 
 					<p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
 
-					<button type="submit" id="submit-pic" class="btn btn-success btn-sm">Submit</button>
+					<button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
 				</form>
 			</div>
 		</div>
@@ -57,12 +63,11 @@
 	<div class="container-fluid" id="result-section">
 		
 		<!-- Section to display age and birth year-->
-		<div class="row">
-			<div class="col-md-4">
-				
-			</div>
-			<div class="col-md-4">
+		<div class="row text-center">
+			<div class="col-lg-6">
 				<div id="age-display"></div>
+			</div>
+			<div class="col-lg-6">				
 				<div id="birth-year"></div>
 			</div>			
 		</div>
@@ -77,12 +82,11 @@
 		
 		<!-- Section for displaying map -->
 		<div class="row">
-        <div id="map"
-             class="hidden-xs hidden-sm" 
-             style="width:400px;height:200px;float: right; margin-right: 20px;margin-top: 30px;">
-            </div>      
-	</div>
-
+	        <div id="map"
+	             class="hidden-xs hidden-sm" 
+	             style="width:400px;height:200px;float: right; margin-right: 20px;margin-top: 30px;">
+	        </div>      
+		</div>
 	
 		<!-- Footer, copyright. -->
 		<footer class="row text-center">

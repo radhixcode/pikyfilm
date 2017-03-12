@@ -14,6 +14,16 @@ var config = {
 firebase.initializeApp(config);
 data = firebase.database();
 
+//Function to get the name of the file uploaded
+function getFileName(){
+    var fileName = $("#input-picture").val()
+    var lastIndex = fileName.lastIndexOf("\\");
+    if (lastIndex >= 0) {
+        fileName = fileName.substring(lastIndex + 1);
+    }
+    return fileName;
+}
+
 //Function to display the image.
 function readFile(input) {
 
@@ -248,12 +258,15 @@ $("#input-picture").change(function(){
 
     $('.message').removeClass("error").html("Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
     
+    // Displaying browsed file name.
+    var fileName = getFileName();
+    $('.file-name').val(fileName);
+
     // Get the file name and take the format (letters after '.') and convert to uppercase   
-    var imageName = $("#input-picture").val();
-    var extension = imageName.split('.').pop().toUpperCase();
+    var extension = fileName.split('.').pop().toUpperCase();
 
     //If the format is not PNG JPG or JPEG and file name is empty throw an error message
-    if((imageName.length < 1)||(extension!="PNG" && extension!="JPG" && extension!="JPEG" && extension!="GIF" && extension!="BMP")) {
+    if((fileName.length < 1)||(extension!="PNG" && extension!="JPG" && extension!="JPEG" && extension!="GIF" && extension!="BMP")) {
         imageFormatOk = 0;
         $('.message').addClass("error").html("Image format should be in PNG, JPG, JPEG, GIF or BMP");
     }
