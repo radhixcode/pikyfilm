@@ -10,12 +10,14 @@
 	<!-- Link to Moment.js -->
  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-
 	<!-- Bootstrap CDN link. -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   	<!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
@@ -27,8 +29,10 @@
 	<div class="container-fluid">
 
 		<!-- Title of the the web site -->
-		<div class="row text-center">
-			<h1>PikyFilm</h1>
+		<div class="row jumbotron text-center header-title">	
+			<img src="assets/images/pfLogo.png" class="logo">		
+			<h1><span class="yellow">Piky</span><span class="grey">Film</span></h1>
+			<em>Make your face pick your film.</em>				
 		</div>
 	
 		<!-- Section to upload and display image -->
@@ -63,7 +67,7 @@
 	<div class="container-fluid" id="result-section">
 		
 		<!-- Section to display age and birth year-->
-		<div class="row text-center">
+		<div class="row text-center age-birth-year">
 			<div class="col-lg-6">
 				<div id="age-display"></div>
 			</div>
