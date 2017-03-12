@@ -198,10 +198,9 @@ function logCityToDatabase(userCity){
 
     // Create a variable to reference the database
     var userdata = firebase.database();
-    userdata.ref().push({
-        city: userCity,
-        country: userCountry
-    });
+    var updateData = {};
+    updateData[userCity] = true;
+    userdata.ref().child('cities').update(updateData);    
 }
 
 
