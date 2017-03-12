@@ -18,6 +18,8 @@ em { color:white; }
 .file-upload-section {
 	background: url('../images/background1.png');
 	margin-top: -30px;
+	display: flex;
+    align-items: center;
 }
 
 .error {
