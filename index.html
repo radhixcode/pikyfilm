@@ -44,7 +44,7 @@
 			<div class="col-xs-8 col-sm-8 col-md-6 col-lg-4 select-file">
 				<form id="image-form">
 					<div class="form-group">
-			            <label for="input-picture">Upload a picture</label><br><br>
+			            <label for="input-picture"><h4>Upload a picture</h4></label><br>
 			            <div class="input-group">              
 			                <label class="input-group-btn">
 			                    <span class="btn btn-primary">
@@ -73,8 +73,12 @@
 			</div>
 			<div class="col-sm-6 col-md-6 col-lg-6">				
 				<div id="birth-year"></div>
-			</div>			
+			</div>		
 		</div>
+		<div class="text-center">
+			<h3>Movie list</h3>
+			<img src="assets/images/line.png">
+		</div>	
 
 		<!-- Section to display movie results-->
 		<div class="row text-center" id="movie-display"></div>
@@ -86,18 +90,49 @@
 	</div>
 	
 	<!-- Map and Footer-->
-	<div class="container-fluid">
+	<div class="container-fluid footer">
 				
 		<!-- Section for displaying map -->
 		<div class="row hidden-xs text-center map-section">
 			<h3>Users across the world</h3>
+			<img src="assets/images/line.png">
 	        <div id="map"></div>      
 		</div>
 	
 		<!-- Footer, copyright. -->
-		<footer class="row text-center">
+		<div class="row text-center info">	
+            <div class="col-md-4 col-lg-4">
+                <h3>Location</h3>
+                <p>UCSD Extension
+                <br>San Diego, CA</p>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <h3>Around the Web</h3>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><img class="btn-social btn-outline" src="assets/images/fb.png"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="btn-social btn-outline" src="assets/images/li.png"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="btn-social btn-outline" src="assets/images/tw.png"></a>
+                    </li>
+                    <li>
+                       <a href="#"><img class="btn-social btn-outline" src="assets/images/gb.png"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <h3>About us</h3>
+                <p></p>
+            </div>          
+		</div>
+
+		<div class="row text-center copyright-text">
 			<p>Copyright &copy; 2017 REMY Inc.</p>
-		</footer>
+		</div>
+
 	</div>
 
 	<script type="text/javascript" src="assets/javascript/pikyfilm.js" ></script>
