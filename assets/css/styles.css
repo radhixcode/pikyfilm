@@ -102,6 +102,7 @@ em { color:white; }
 #move-top img{
 	height: 50px;
 	width: 50px;
+	filter: drop-shadow(-5px 5px 5px);
 }
 
 #map {
