@@ -85,15 +85,18 @@ function DetectAgeFromImageData(imageDataBlob){
 
       if(response.length > 0){
 
-        //Scroll down to the resul section.
+        //Scroll down to the result section.
+        $("#result-section").show();
         $('html, body').animate({
             scrollTop: $("#result-section").offset().top
         });
 
         console.log("Number of faces :" + response.length);
+
         var age = response["0"].faceAttributes.age;
-            $("#age-display").html("Your age is :" + age);
+        $("#age-display").html("Your age is :" + age);
         ConvertAgeToBirthYear(age);
+
         // for(var j=0; j<response.length; j++){
         //     var age[j] = response["j"].faceAttributes.age;
         //     $("#age-display").html("Your age is :" + age[j]);
@@ -101,7 +104,7 @@ function DetectAgeFromImageData(imageDataBlob){
         
         }
       else{
-        $('.message').addClass("error").html("No faces detected");
+        $('.message').addClass("error").html("No face detected");
       }         
 
     }).fail(function() {
@@ -168,7 +171,7 @@ function movieQuery(year) {
                     if (tmdbData.results[i].poster_path !== null) {
                         $("#movie-num-" + movieCounter)
                             // the base url and size data are pulled from the second ajax request
-                            .append("<img class='pull-left movie-image' src=" + tmdbIMG.images.base_url + "w185" + tmdbData.results[i].poster_path + ">");
+                            .append("<img class='pull-left thumbnail movie-image' src=" + tmdbIMG.images.base_url + "w185" + tmdbData.results[i].poster_path + ">");
                     }
 
                     // If there is a release date... appends it to the appropriate div

@@ -33,6 +33,25 @@ em { color:white; }
 	max-height: 400px;
 }
 
+#result-section {
+	display: none;
+	background-color: #f6f6f6;
+	padding-bottom: 30px;
+}
+
+.age-birth-year {
+	background-color: grey;
+	padding: 30px;
+	color: white;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: "verdana";
+	margin-top: 10px;
+	margin-bottom: 30px;
+	font-size: 25px;
+	font-weight: 600;
+	background: linear-gradient(#f6f6f6, #939393);
+}
+
 .movie-image {
 	margin-right: 10px;
 }
@@ -57,10 +76,35 @@ em { color:white; }
 	display: inline-block;
 }
 
+#move-top{
+    position: fixed;
+    right: 10px;
+    bottom: 20px;
+}
+#move-top img{
+	height: 50px;
+	width: 50px;
+}
+
 #map {
 	width: 50%;
     height: 300px;
     margin: 0 auto;
+}
+.map-section {
+	padding-bottom: 30px;
+}
+.map-section h3 {
+	padding: 30px;
+	background: linear-gradient(#939393,#ffffff);
+	margin-top: 0px;
+}
+
+footer {
+	background-color: #fed403;
+    padding: 20px;
+    border-top: solid 4px #ccc;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 992px) {
