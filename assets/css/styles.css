@@ -20,6 +20,8 @@ em { color:white; }
 	margin-top: -30px;
 	display: flex;
     align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
 }
 
 .error {
@@ -28,6 +30,7 @@ em { color:white; }
 
 #image {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	max-height: 400px;
 }
 
 .movie-image {
@@ -52,6 +55,12 @@ em { color:white; }
 	padding-left: 20px;
 	padding-bottom: 10px;
 	display: inline-block;
+}
+
+#map {
+	width: 50%;
+    height: 300px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 992px) {

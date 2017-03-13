@@ -218,7 +218,7 @@ function logCityToDatabase(userCity){
 //Initiate and render Google Map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 0,
+            zoom: 1,
             center: new google.maps.LatLng(2.8, -187.3),
             mapTypeId: 'terrain'
         });
