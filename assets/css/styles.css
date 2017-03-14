@@ -3,17 +3,17 @@
 	border-bottom: 5px #fed403 solid; 
 }
 
-.header-title { background-color: #939393;}
+/*.header-title { background-color: #939393;}*/
 
 .logo { height: 100px; }
 
-.yellow, .grey { font-family: 'Abril Fatface', cursive; }
+.fuschia, .grey { font-family: 'Abril Fatface', cursive; }
 
-.yellow { color: #fed403; }
+.fuschia { color: #cf2037; }
 
 .grey { color: #333333; }
 
-em { color:white; }
+em { color:black; }
 
 .file-upload-section {
 	margin-top: -30px;
@@ -34,13 +34,13 @@ em { color:white; }
 }
 
 .btn-success{
-	background-color: #d8bc28;
-	border-color: #daaf3f; 
+	background-color: #cf2037;
+	border-color: #b01b2f; 
 }
 
 .btn-success:hover {
-	background-color: #f1cb05; 
-	border-color: #d8bc28; 
+	background-color: #b01b2f; 
+	border-color: #b01b2f; 
 }
 
 .error {
@@ -60,14 +60,14 @@ em { color:white; }
 
 .age-birth-year {
 	background-color: grey;
-	padding: 30px;
+	padding: 15px;
 	color: white;
 	text-shadow: 2px 2px 4px #000000;
-	font-family: "verdana";
+    font-family: 'Merriweather', serif;	
 	margin-bottom: 30px;
 	font-size: 25px;
 	font-weight: 600;
-	background: linear-gradient(#2b2b2b, #939393);
+	background: linear-gradient(#cf2037, #80101f);
 }
 
 .movie-image {
@@ -75,7 +75,9 @@ em { color:white; }
 }
 
 .movie-title {
-   background-color: #fed402 ;
+   font-family: 'Abril Fatface', cursive;
+   background-color: #cf2037;
+   color: white;
    margin: 0px -20px 20px -20px;
    padding: 15px;
    text-align: center;
@@ -92,6 +94,7 @@ em { color:white; }
 	padding-left: 20px;
 	padding-bottom: 10px;
 	display: inline-block;
+	background-color: white;
 }
 
 #move-top{
@@ -127,33 +130,12 @@ em { color:white; }
 	background-color: #f1f1f1;
 }
 
-.info {
-	border-top: solid 4px #ccc;
-	background-color: #fed403;
-	padding: 20px;  
-    font-size: 20px;
-}
-	    
-.btn-social {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  border: solid 2px white;
-  transition: all 0.3s ease-in-out;
-  margin-top: 15px;
-}
-
-.btn-social:hover,
-.btn-social:focus{
-  background: white;
-  border: solid 2px grey;
-}
-
 .copyright-text {
-	background-color: #eac505;
+	background-color: #80101f;
+	color: white;
     padding: 30px;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 992px) {

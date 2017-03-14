@@ -94,7 +94,7 @@ function DetectAgeFromImageData(imageDataBlob){
         console.log("Number of faces :" + response.length);
 
         var age = response["0"].faceAttributes.age;
-        $("#age-display").html("Your age is :" + age);
+        $("#age-display").html("Age : " + age);
         ConvertAgeToBirthYear(age);
 
         // for(var j=0; j<response.length; j++){
@@ -121,7 +121,7 @@ function ConvertAgeToBirthYear(photoage) {
     var currentYear = date.getFullYear();
     var age1 = Math.floor(photoage);
     var birthYear= currentYear - age1;
-    $("#birth-year").html("Your Birth Year is: " + birthYear);
+    $("#birth-year").html("Birth Year : " + birthYear);
     movieQuery(birthYear);
 }
 
