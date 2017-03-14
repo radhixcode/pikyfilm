@@ -3,8 +3,6 @@
 	border-bottom: 5px #fed403 solid; 
 }
 
-/*.header-title { background-color: #939393;}*/
-
 .logo { height: 100px; }
 
 .fuschia, .grey { font-family: 'Abril Fatface', cursive; }
@@ -59,15 +57,12 @@ em { color:black; }
 }
 
 .age-birth-year {
-	background-color: grey;
 	padding: 15px;
-	color: white;
-	text-shadow: 2px 2px 4px #000000;
+	color: grey; 
     font-family: 'Merriweather', serif;	
 	margin-bottom: 30px;
 	font-size: 25px;
 	font-weight: 600;
-	background: linear-gradient(#cf2037, #80101f);
 }
 
 .movie-image {

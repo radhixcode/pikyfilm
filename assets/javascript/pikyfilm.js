@@ -104,14 +104,15 @@ function detectAgeFromImageData(imageDataBlob){
                 console.log(response);
                 console.log(ages);
             }
-         $("#numberOfFaces-display").html("Number of faces in picture:" + response.length);
+         //$("#numberOfFaces-display").html("Number of faces in picture:" + response.length);
+         $("#age-display").html("Number of faces in picture:" + response.length);
             
             if(response.length == 1){
-              $("#age-display").html("Your age is :" + age);
+              $("#age-display").append("Your age is :" + age);
             }
         
             else{
-              $("#age-display").html("Ages in this picture are :" + ages);
+              $("#age-display").append("Ages in this picture are :" + ages);
             }
 
         
@@ -136,7 +137,7 @@ function convertAgeToBirthYear(photoages,smallestAge) {
     
     var date= new Date();
     var currentYear = date.getFullYear();
-    var allPicAges = [];
+    var birthYears = [];
         
         for(var w=0; w<photoages.length; w++){
             var age = Math.floor(photoages[w]);
@@ -144,9 +145,9 @@ function convertAgeToBirthYear(photoages,smallestAge) {
             var smallestAgeInArray = Math.floor(smallestAge);
             var smallestBirthYear = currentYear - smallestAgeInArray;
 
-            allPicAges.push(birthYear);
+            birthYears.push(birthYear);
             console.log(photoages,age,birthYear);
-            console.log(allPicAges);
+            console.log(birthYears);
             console.log("smallest birthyear: " + smallestBirthYear);
 
         }
@@ -155,7 +156,7 @@ function convertAgeToBirthYear(photoages,smallestAge) {
             }
         
             else{
-              $("#birth-year").html("Your Birth Years are:" + photoages);
+              $("#birth-year").html("Your Birth Years are:" + birthYears);
             }
      $("#MinBirthYear").html("<h3>Check out these films that were released in " + smallestBirthYear + "<h3>");
     
