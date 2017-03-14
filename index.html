@@ -29,36 +29,50 @@
 	<div class="container-fluid">
 
 		<!-- Title of the the web site -->
-		<div class="row text-center header-title">	
-			<img src="assets/images/pfLogo.png" class="logo">		
+		<div class="row header-title">	
+			<img src="assets/images/pfLogo.png" class="pull-left logo">		
 			<h1><span class="fuschia">Piky</span><span class="grey">Film</span></h1>
 			<em>Make your face pick your film.</em>				
 		</div>
 	
 		<!-- Section to upload and display image -->
 		<div class="row text-center file-upload-section">
-			<div class="col-xs-4 col-sm-4 col-md-6 col-lg-4 col-lg-offset-2 text-center image-section ">
-				<img class="img-responsive" id="image" src="assets/images/female-upload.png">
+			<div class="col-lg-4 col-lg-offset-1">
+
+				<div class= "image-section"> 
+					<img class="img-responsive" id="image" src="assets/images/female-upload.png">
+				</div>
+
+				<div class="select-file">
+
+					<form id="image-form">
+						<div class="form-group">
+				            <label for="input-picture"></label><br>
+				            <div class="input-group">              
+				                <label class="input-group-btn">
+				                    <span class="btn btn-primary">
+				                        Browse&hellip; <input type="file" style="display: none;" accept='image/*' id="input-picture"> 
+
+
+				                    </span>
+				                    <button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
+				                </label>
+				                <input type="text" class="form-control file-name" readonly>
+				            </div>
+						</div>
+
+						<p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
+
+						
+					</form>
+				</div>
 			</div>
+			<div class="col-lg-4 col-lg-offset-1">  <!-- Section to display age and birth year-->
+				<div class="text-center age-birth-year">
+					<div id="age-display"> Whaddup, brah. Upload yo sexy photo here, so you can get out on with yo Netflix and chill.</div>			
+					<div id="birth-year"></div>
+				</div>
 
-			<div class="col-xs-8 col-sm-8 col-md-6 col-lg-4 select-file">
-				<form id="image-form">
-					<div class="form-group">
-			            <label for="input-picture"><h4>Upload a picture</h4></label><br>
-			            <div class="input-group">              
-			                <label class="input-group-btn">
-			                    <span class="btn btn-primary">
-			                        Browse&hellip; <input type="file" style="display: none;" accept='image/*' id="input-picture">
-			                    </span>
-			                </label>
-			                <input type="text" class="form-control file-name" readonly>
-			            </div>
-					</div>
-
-					<p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
-
-					<button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
-				</form>
 			</div>
 		</div>
 	</div>
@@ -66,15 +80,7 @@
 	<!-- Result section -->
 	<div class="container-fluid" id="result-section">
 		
-		<!-- Section to display age and birth year-->
-		<div class="row text-center age-birth-year">
-			<div class="col-sm-6 col-md-6 col-lg-6">
-				<div id="age-display"></div>
-			</div>
-			<div class="col-sm-6 col-md-6 col-lg-6">				
-				<div id="birth-year"></div>
-			</div>		
-		</div>
+		
 		<div class="text-center">
 			<h3>Check out these films that were released in your birth year.</h3>
 			<!-- <img src="assets/images/line.png"> -->
