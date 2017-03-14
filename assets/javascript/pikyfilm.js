@@ -63,9 +63,13 @@ var makeBlob = function (dataURL) {
     return new Blob([uInt8Array], { type: contentType });
 }
 
+//get minimum number in array
+Array.prototype.minArray = function () {
+return Math.min.apply(Math, this);
+};
 
 //function to send image data to the Face api and return age
-function DetectAgeFromImageData(imageDataBlob){
+function detectAgeFromImageData(imageDataBlob){
    
  var params = {
       "returnFaceId": "true",
@@ -92,21 +96,34 @@ function DetectAgeFromImageData(imageDataBlob){
         });
 
         console.log("Number of faces :" + response.length);
+        var ages = [];
 
-        var age = response["0"].faceAttributes.age;
-        $("#age-display").html("Age : " + age);
-        ConvertAgeToBirthYear(age);
-
-        // for(var j=0; j<response.length; j++){
-        //     var age[j] = response["j"].faceAttributes.age;
-        //     $("#age-display").html("Your age is :" + age[j]);
-        // }
+            for(var j=0; j<response.length; j++){
+                var age = response[j + ""].faceAttributes.age;
+                ages.push(response[j].faceAttributes.age);
+                console.log(response);
+                console.log(ages);
+            }
+         $("#numberOfFaces-display").html("Number of faces in picture:" + response.length);
+            
+            if(response.length == 1){
+              $("#age-display").html("Your age is :" + age);
+            }
         
+            else{
+              $("#age-display").html("Ages in this picture are :" + ages);
+            }
+
+        
+        var smallestAge = ages.minArray();
+        console.log("smallest age " + smallestAge);         
+
+        convertAgeToBirthYear(ages,smallestAge);
+
         }
       else{
         $('.message').addClass("error").html("No face detected");
       }         
-
     }).fail(function() {
        alert("error");            
     });
@@ -115,14 +132,35 @@ function DetectAgeFromImageData(imageDataBlob){
 
 
 //function to get year of birth given age
-function ConvertAgeToBirthYear(photoage) {
+function convertAgeToBirthYear(photoages,smallestAge) {
     
     var date= new Date();
     var currentYear = date.getFullYear();
-    var age1 = Math.floor(photoage);
-    var birthYear= currentYear - age1;
-    $("#birth-year").html("Birth Year : " + birthYear);
-    movieQuery(birthYear);
+    var allPicAges = [];
+        
+        for(var w=0; w<photoages.length; w++){
+            var age = Math.floor(photoages[w]);
+            var birthYear= currentYear - age;
+            var smallestAgeInArray = Math.floor(smallestAge);
+            var smallestBirthYear = currentYear - smallestAgeInArray;
+
+            allPicAges.push(birthYear);
+            console.log(photoages,age,birthYear);
+            console.log(allPicAges);
+            console.log("smallest birthyear: " + smallestBirthYear);
+
+        }
+            if(photoages.length == 1){
+              $("#birth-year").html("Your Birth Year is: " + birthYear);
+            }
+        
+            else{
+              $("#birth-year").html("Your Birth Years are:" + photoages);
+            }
+     $("#MinBirthYear").html("<h3>Check out these films that were released in " + smallestBirthYear + "<h3>");
+    
+            
+    movieQuery(smallestBirthYear);
 }
 
 
@@ -197,7 +235,7 @@ function movieQuery(year) {
 }
 
 //function using ip-api to capture user ip and return city & country
-function CaptureUserIp(){
+function captureUserIp(){
     var IpQueryUrl = "http://ip-api.com/json";
     $.ajax({
         url: IpQueryUrl,
@@ -317,8 +355,8 @@ $("#submit-pic").on("click", function(event){
                 var imageBlob = makeBlob(imageData);
 
                 //  Call function for API call with this argument
-                DetectAgeFromImageData(imageBlob);
-                CaptureUserIp();     
+                detectAgeFromImageData(imageBlob);
+                captureUserIp();     
             }
         }
     }else{
