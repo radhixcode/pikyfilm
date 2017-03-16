@@ -153,6 +153,7 @@ em { color:black; }
 
 .logo-image{
 	float: right;
+	margin-right: 60px;
 }
 
 .api-logo {
@@ -164,6 +165,7 @@ em { color:black; }
 	.movie-div {
 		width: 45%;
 	}
+
 }
 
 @media screen and (max-width: 768px) {
@@ -183,8 +185,13 @@ em { color:black; }
 	}
 
 	.copyright-text p, .logo-image{
-	float: none;
-	text-align: center;
+		float: none;
+		text-align: center;
+	}
+
+	.logo-image {
+		margin-right: 0px;
+
 	}
 
 }
