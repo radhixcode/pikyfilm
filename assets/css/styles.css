@@ -142,6 +142,14 @@ em { color:black; }
 	color: grey;
 }
 
+.copyright-text p{
+	float: left;
+}
+
+.logo-image{
+	float: right;
+}
+
 .api-logo {
 	max-height: 35px;
 	padding: 2px;
@@ -154,6 +162,11 @@ em { color:black; }
 }
 
 @media screen and (max-width: 768px) {
+	
+	#age-display, #birth-year{
+		font-size: 14px;
+	}
+
 	.movie-div {
 		width: 95%;
 		height: auto;
@@ -163,4 +176,10 @@ em { color:black; }
 	.input-bar {
 		width: 190px;
 	}
+
+	.copyright-text p, .logo-image{
+	float: none;
+	text-align: center;
+	}
+
 }

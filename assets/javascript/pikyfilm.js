@@ -144,7 +144,7 @@ function convertAgeToBirthYear(photoages,smallestAge) {
             else{
               $("#birth-year").html("Birth Years: " + birthYears);
             }
-     $("#MinBirthYear").html("<h3>Released in " + smallestBirthYear + "<h3>");
+     $("#min-birth-year").html("<h3>Released in " + smallestBirthYear + "<h3>");
     
             
     movieQuery(smallestBirthYear);
@@ -322,7 +322,7 @@ $("#submit-pic").on("click", function(event){
     $("#movie-display").empty();
     $("#age-display").empty();
     $("#birth-year").empty();
-    $("#MinBirthYear").empty();
+    $("#min-birth-year").empty();
     $("#result-section").hide();
 
     var imageName = $("#input-picture").val();
