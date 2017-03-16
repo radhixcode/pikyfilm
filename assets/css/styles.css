@@ -144,5 +144,7 @@ em { color:black; }
 @media screen and (max-width: 768px) {
 	.movie-div {
 		width: 95%;
+		height: auto;
+		overflow: visible;
 	}
 }
