@@ -71,6 +71,10 @@ em { color:black; }
 	overflow: scroll;
 }
 
+#min-birth-year {
+	font-family: 'Merriweather', serif;	
+}
+
 .movie-image {
 	margin-right: 10px;
 }
@@ -114,6 +118,7 @@ em { color:black; }
 }
 .map-section {
 	padding-bottom: 60px;
+    font-family: 'Merriweather', serif;		
 }
 .map-section h3 {
 	padding-top: 30px;
