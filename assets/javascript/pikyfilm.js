@@ -89,19 +89,21 @@ function detectAgeFromImageData(imageDataBlob){
 
       if(response.length > 0){
 
+        $('message').html("<strong> Upload another picture</strong><br>Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
+
         //Show result section.
         $("#result-section").show();
 
-        console.log("Number of faces :" + response.length);
         var ages = [];
 
-            for(var j=0; j<response.length; j++){
-                var age = response[j + ""].faceAttributes.age;
-                ages.push(response[j].faceAttributes.age);
-                console.log(response);
-                console.log(ages);
-            }
-         //$("#numberOfFaces-display").html("Number of faces in picture:" + response.length);
+        for(var j=0; j<response.length; j++){
+            var age = response[j + ""].faceAttributes.age;
+            ages.push(response[j].faceAttributes.age);
+        } 
+        
+        var smallestAge = ages.minArray(); 
+        convertAgeToBirthYear(ages,smallestAge);       
+
          $("#age-display").html("Number of faces in picture:" + response.length);
             
             if(response.length == 1){
@@ -111,13 +113,6 @@ function detectAgeFromImageData(imageDataBlob){
             else{
               $("#age-display").append("Ages in this picture are :" + ages);
             }
-
-        
-        var smallestAge = ages.minArray();
-        console.log("smallest age " + smallestAge);         
-
-        convertAgeToBirthYear(ages,smallestAge);
-
         }
       else{
         $('.message').addClass("error").html("No face detected");
@@ -143,10 +138,6 @@ function convertAgeToBirthYear(photoages,smallestAge) {
             var smallestBirthYear = currentYear - smallestAgeInArray;
 
             birthYears.push(birthYear);
-            console.log(photoages,age,birthYear);
-            console.log(birthYears);
-            console.log("smallest birthyear: " + smallestBirthYear);
-
         }
             if(photoages.length == 1){
               $("#birth-year").html("Your Birth Year is: " + birthYear);
@@ -333,6 +324,8 @@ $("#submit-pic").on("click", function(event){
     $("#movie-display").empty();
     $("#age-display").empty();
     $("#birth-year").empty();
+    $("#MinBirthYear").empty();
+    $("#result-section").hide();
 
     var imageName = $("#input-picture").val();
 
