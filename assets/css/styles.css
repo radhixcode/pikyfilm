@@ -85,13 +85,13 @@ em { color:black; }
 	height: 365px;
 	border-radius: 3%;
 	width: 30%;
-	border: black 1px solid;
+	border: #999 1px solid;
 	margin: 10px;
 	padding-right: 20px;
 	padding-left: 20px;
 	padding-bottom: 10px;
 	display: inline-block;
-	background-color: white;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 #move-top{
