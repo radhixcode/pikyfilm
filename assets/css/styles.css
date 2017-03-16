@@ -50,6 +50,7 @@ em { color:black; }
 #image {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	max-height: 300px;
+	max-width: 100%;
 }
 
 #result-section {
@@ -130,9 +131,20 @@ em { color:black; }
 .copyright-text {
 	background-color: #80101f;
 	color: white;
-    padding: 30px;
+    padding: 10px;
     font-size: 15px;
     font-weight: 500;
+    display: list-item;
+}
+
+.copyright-text p span {
+	font-size: 10px;
+	color: grey;
+}
+
+.api-logo {
+	max-height: 35px;
+	padding: 2px;
 }
 
 @media screen and (max-width: 992px) {
@@ -146,5 +158,9 @@ em { color:black; }
 		width: 95%;
 		height: auto;
 		overflow: visible;
+	}
+
+	.input-bar {
+		width: 190px;
 	}
 }
