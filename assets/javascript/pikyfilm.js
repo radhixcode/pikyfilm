@@ -89,11 +89,8 @@ function detectAgeFromImageData(imageDataBlob){
 
       if(response.length > 0){
 
-        //Scroll down to the result section.
+        //Show result section.
         $("#result-section").show();
-        $('html, body').animate({
-            scrollTop: $("#result-section").offset().top
-        });
 
         console.log("Number of faces :" + response.length);
         var ages = [];
@@ -217,7 +214,7 @@ function movieQuery(year) {
                     if (tmdbData.results[i].release_date !== null) {
                         var convertedDate = moment(tmdbData.results[i].release_date).format("MMM DD, YYYY");
                         $("#movie-num-" + movieCounter)
-                            .append("<p><strong>Release Date: </strong>" + convertedDate + "</p>");
+                            .append("<p><strong>Released: </strong><br>" + convertedDate + "</p>");
                     } 
 
                     // If there is an overview... appends it to the appropriate div
