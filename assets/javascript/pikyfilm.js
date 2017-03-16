@@ -87,36 +87,34 @@ function detectAgeFromImageData(imageDataBlob){
 
     }).done(function(response) {
 
-      if(response.length > 0){
+        if(response.length > 0){
 
-        $('message').html("<strong> Upload another picture</strong><br>Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
+            $('.message').html("<strong> Upload another picture</strong><br>Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB");
 
-        //Show result section.
-        $("#result-section").show();
+            //Show result section.
+            $("#result-section").show();
 
-        var ages = [];
+            var ages = [];
 
-        for(var j=0; j<response.length; j++){
-            var age = response[j + ""].faceAttributes.age;
-            ages.push(response[j].faceAttributes.age);
-        } 
-        
-        var smallestAge = ages.minArray(); 
-        convertAgeToBirthYear(ages,smallestAge);       
-
-         $("#age-display").html("Number of faces in picture:" + response.length);
+            for(var j=0; j<response.length; j++){
+                var age = response[j + ""].faceAttributes.age;
+                ages.push(response[j].faceAttributes.age);
+            } 
             
-            if(response.length == 1){
-              $("#age-display").append("Your age is :" + age);
-            }
-        
-            else{
-              $("#age-display").append("Ages in this picture are :" + ages);
-            }
+            var smallestAge = ages.minArray(); 
+            convertAgeToBirthYear(ages,smallestAge);       
+                
+                if(response.length == 1){
+                  $("#age-display").append("Age: " + age);
+                }
+            
+                else{
+                  $("#age-display").append("Ages in the picture: " + ages);
+                }
         }
-      else{
-        $('.message').addClass("error").html("No face detected");
-      }         
+        else{
+            $('.message').addClass("error").html("No face detected");
+        }         
     }).fail(function() {
        alert("error");            
     });
@@ -140,13 +138,13 @@ function convertAgeToBirthYear(photoages,smallestAge) {
             birthYears.push(birthYear);
         }
             if(photoages.length == 1){
-              $("#birth-year").html("Your Birth Year is: " + birthYear);
+              $("#birth-year").html("Birth Year: " + birthYear);
             }
         
             else{
-              $("#birth-year").html("Your Birth Years are:" + birthYears);
+              $("#birth-year").html("Birth Years: " + birthYears);
             }
-     $("#MinBirthYear").html("<h3>Check out these films that were released in " + smallestBirthYear + "<h3>");
+     $("#MinBirthYear").html("<h3>Released in " + smallestBirthYear + "<h3>");
     
             
     movieQuery(smallestBirthYear);
