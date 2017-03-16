@@ -351,4 +351,15 @@ $("#submit-pic").on("click", function(event){
     }else{
         $('.message').addClass("error").html("Upload an image");
     }
+
+});
+
+// Go-to-Top button disappears on screen top
+
+$(window).scroll(function() {
+   if(document.body.scrollTop == 0) {
+       $("#move-top").fadeOut();
+   } else {
+       $("#move-top").fadeIn();
+   }
 });
