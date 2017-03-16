@@ -40,27 +40,24 @@
 			<div class="col-lg-4 col-lg-offset-1">
 
 				<div class= "image-section"> 
-					<img class="img-responsive" id="image" src="assets/images/female-upload.png">
+					<img id="image" src="assets/images/female-upload.png">
 				</div>
 
 				<div class="select-file">
-
 					<form id="image-form">
-						<div class="form-group">
-				            <label for="input-picture"></label><br>
+						<div class="form-group browse-submit-inline">
 				            <div class="input-group">              
 				                <label class="input-group-btn">
 				                    <span class="btn btn-primary">
 				                        Browse&hellip; <input type="file" style="display: none;" accept='image/*' id="input-picture"> 
-
-
 				                    </span>
-				                    <button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
 				                </label>
 				                <input type="text" class="form-control file-name" readonly>
 				            </div>
 						</div>
-
+						<div class="browse-submit-inline">
+		                    <button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
+	                    </div>
 						<p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
 
 						

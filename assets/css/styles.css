@@ -14,11 +14,12 @@
 em { color:black; }
 
 .file-upload-section {
-	margin-top: -30px;
-	display: flex;
-    align-items: center;
-    padding-bottom: 40px;
-    padding-top: 40px;
+	padding:10px;
+}
+
+.browse-submit-inline, #image {
+	display: inline-table;
+	margin: 15px auto 0;
 }
 
 .btn-primary{
@@ -34,6 +35,7 @@ em { color:black; }
 .btn-success{
 	background-color: #cf2037;
 	border-color: #b01b2f; 
+	margin-top: -27px;
 }
 
 .btn-success:hover {
