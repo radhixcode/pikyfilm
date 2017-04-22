@@ -1,141 +1,158 @@
-.container-fluid .jumbotron { 
-	border-radius: 0%;
-	border-bottom: 5px #fed403 solid; 
+.container-fluid .jumbotron {
+    border-radius: 0%;
+    border-bottom: 5px #fed403 solid;
 }
 
-.logo { height: 100px; }
+.logo {
+    height: 100px;
+}
 
-.fuschia, .grey { font-family: 'Abril Fatface', cursive; }
+.fuschia,
+.grey {
+    font-family: 'Abril Fatface', cursive;
+}
 
-.fuschia { color: #cf2037; }
+.fuschia {
+    color: #cf2037;
+}
 
-.grey { color: #333333; }
+.grey {
+    color: #333333;
+}
 
-em { color:black; }
+em {
+    color: black;
+}
 
 .file-upload-section {
-	padding:10px;
+    padding: 10px;
 }
 
-.browse-submit-inline, #image {
-	display: inline-table;
-	margin: 15px auto 0;
+.browse-submit-inline,
+#image {
+    display: inline-table;
+    margin: 15px auto 0;
 }
 
-.btn-primary{
-	background-color: #333;
-	border-color: #333;
+.btn-primary {
+    background-color: #333;
+    border-color: #333;
 }
 
-.btn-primary:hover { 
-	background-color: #7c7c7c;
-	border-color: #ccc; 
+.btn-primary:hover {
+    background-color: #7c7c7c;
+    border-color: #ccc;
 }
 
-.btn-success{
-	background-color: #cf2037;
-	border-color: #b01b2f; 
-	margin-top: -27px;
+.btn-success {
+    background-color: #cf2037;
+    border-color: #b01b2f;
+    margin-top: -27px;
 }
 
 .btn-success:hover {
-	background-color: #b01b2f; 
-	border-color: #b01b2f; 
+    background-color: #b01b2f;
+    border-color: #b01b2f;
 }
 
 .error {
-	color:red;
+    color: red;
 }
 
 #image {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	max-height: 300px;
-	max-width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 300px;
+    max-width: 100%;
 }
 
 #result-section {
-	display: none;
-	padding-bottom: 30px;
-	background: url('../images/background1.png');
+    display: none;
+    padding-bottom: 30px;
+    background: url('../images/background1.png');
 }
 
 .age-birth-year {
-	padding: 15px;
-	color: grey; 
-    font-family: 'Merriweather', serif;	
-	font-size: 150%;
-	font-weight: 600;
+    padding: 15px;
+    color: grey;
+    font-family: 'Merriweather', serif;
+    font-size: 150%;
+    font-weight: 600;
 }
 
-#age-display, #birth-year {
-	overflow: scroll;
+#age-display,
+#birth-year {
+    overflow: scroll;
 }
 
 #min-birth-year {
-	font-family: 'Merriweather', serif;	
+    font-family: 'Merriweather', serif;
 }
 
 .movie-image {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 
 .movie-title {
-   font-family: 'Abril Fatface', cursive;
-   color: #cf2037;
-   text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    color: #cf2037;
+    text-align: center;
 }
 
 .movie-div {
-	overflow: scroll;
-	height: 365px;
-	border-radius: 3%;
-	width: 30%;
-	border: #999 1px solid;
-	margin: 10px;
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-bottom: 10px;
-	display: inline-block;
-	background-color: rgba(0, 0, 0, 0.3);
+    overflow: scroll;
+    height: 365px;
+    border-radius: 3%;
+    width: 30%;
+    border: #999 1px solid;
+    margin: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-#move-top{
+#move-top {
     position: fixed;
     right: 10px;
     bottom: 20px;
 }
-#move-top img{
-	height: 50px;
-	width: 50px;
-	filter: drop-shadow(-5px 5px 5px);
+
+#move-top img {
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(-5px 5px 5px);
 }
 
 #map {
-	width: 50%;
+    width: 50%;
     height: 300px;
     margin: 0 auto;
     padding-top: 60px;
 }
+
 .map-section {
-	padding-bottom: 60px;
-    font-family: 'Merriweather', serif;		
+    padding-bottom: 60px;
+    font-family: 'Merriweather', serif;
 }
+
 .map-section h3 {
-	padding-top: 30px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+    padding-top: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .map-section img {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
+
 .footer {
-	background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 .copyright-text {
-	background-color: #80101f;
-	color: white;
+    background-color: #80101f;
+    color: white;
     padding: 10px;
     font-size: 15px;
     font-weight: 500;
@@ -143,55 +160,49 @@ em { color:black; }
 }
 
 .copyright-text p span {
-	font-size: 10px;
-	color: grey;
+    font-size: 10px;
+    color: grey;
 }
 
-.copyright-text p{
-	float: left;
+.copyright-text p {
+    float: left;
 }
 
-.logo-image{
-	float: right;
-	margin-right: 55px;
+.logo-image {
+    float: right;
+    margin-right: 55px;
 }
 
 .api-logo {
-	max-height: 35px;
-	padding: 2px;
+    max-height: 35px;
+    padding: 2px;
 }
 
 @media screen and (max-width: 992px) {
-	.movie-div {
-		width: 45%;
-	}
-
+    .movie-div {
+        width: 45%;
+    }
 }
 
 @media screen and (max-width: 768px) {
-	
-	#age-display, #birth-year{
-		font-size: 14px;
-	}
-
-	.movie-div {
-		width: 95%;
-		height: auto;
-		overflow: visible;
-	}
-
-	.input-bar {
-		width: 190px;
-	}
-
-	.copyright-text p, .logo-image{
-		float: none;
-		text-align: center;
-	}
-
-	.logo-image {
-		margin-right: 0px;
-
-	}
-
+    #age-display,
+    #birth-year {
+        font-size: 14px;
+    }
+    .movie-div {
+        width: 95%;
+        height: auto;
+        overflow: visible;
+    }
+    .input-bar {
+        width: 190px;
+    }
+    .copyright-text p,
+    .logo-image {
+        float: none;
+        text-align: center;
+    }
+    .logo-image {
+        margin-right: 0px;
+    }
 }
