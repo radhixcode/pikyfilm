@@ -1,128 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- jQuery CDN link. -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-	<!-- Link to Moment.js -->
- 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-	<!-- Bootstrap CDN link. -->
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  	<!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-
-    <!-- Google font -->
+    <!-- Bootstrap CDN link, Google Fonts, Animate CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Merriweather" rel="stylesheet">
-    
-	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-    
-    <!-- animate css library link -->
-	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 
-	<title>PikyFilm</title>
+    <title>PikyFilm</title>
 </head>
+
 <body>
 
-	<!-- Header and Upload image -->
-	<div class="container-fluid">
+    <!-- Header and Upload image -->
+    <div class="container-fluid">
 
-		<!-- Title of the the web site -->
-		<div class="row header-title animated fadeInLeft">	
-			<img src="assets/images/pfLogo.png" class="pull-left logo">		
-			<h1><span class="fuschia">Piky</span><span class="grey">Film</span></h1>
-			<em>Make your face pick your film.</em>				
-		</div>
-	
-		<!-- Section to upload and display image -->
-		<div class="row text-center file-upload-section">
-			<div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">
+        <!-- Title of the the web site -->
+        <div class="row header-title animated fadeInLeft">
+            <img src="assets/images/pfLogo.png" class="pull-left logo">
+            <h1><span class="fuschia">Piky</span><span class="grey">Film</span></h1>
+            <em>Make your face pick your film.</em>
+        </div>
 
-				<div class= "image-section"> 
-					<img id="image" src="assets/images/female-upload.png">
-				</div>
-
-				<div class="select-file">
-					<form id="image-form">
-						<div class="form-group browse-submit-inline">
-				            <div class="input-group input-bar">              
-				                <label class="input-group-btn">
+        <!-- Section to upload and display image -->
+        <div class="row text-center file-upload-section">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">
+                <div class="image-section">
+                    <img id="image" src="assets/images/female-upload.png">
+                </div>
+                <div class="select-file">
+                    <form id="image-form">
+                        <div class="form-group browse-submit-inline">
+                            <div class="input-group input-bar">
+                                <label class="input-group-btn">
 				                    <span class="btn btn-primary">
 				                        Browse&hellip; <input type="file" style="display: none;" accept='image/*' id="input-picture"> 
 				                    </span>
 				                </label>
-				                <input type="text" class="form-control file-name" readonly>
-				            </div>
-						</div>
-						<div class="browse-submit-inline">
-		                    <button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
-	                    </div>
-						<p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
+                                <input type="text" class="form-control file-name" readonly>
+                            </div>
+                        </div>
+                        <div class="browse-submit-inline">
+                            <button type="submit" id="submit-pic" class="btn btn-success">Submit</button>
+                        </div>
+                        <p class="help-block message">Format (.jpg, .png, .jpeg, .gif, .bmp) | Size max 2MB</p>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">
+                <!-- Section to display age and birth year-->
+                <div class="text-center age-birth-year">
+                    <div id="age-display"> Hello, World! Upload your fly photo here, so you can get on with your movie watchin'. </div>
+                    <div id="birth-year"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-						
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-1">  <!-- Section to display age and birth year-->
-				<div class="text-center age-birth-year">
-					<div id="age-display"> Hello, World! Upload your fly photo here, so you can get on with your movie watchin'. </div>			
-					<div id="birth-year"></div>
-				</div>
+    <!-- Result section -->
+    <div class="container-fluid" id="result-section">
 
-			</div>
-		</div>
-	</div>
-	
-	<!-- Result section -->
-	<div class="container-fluid" id="result-section">
-		
-		<div class="text-center" id="min-birth-year"></div>
+        <div class="text-center" id="min-birth-year"></div>
 
-		<!-- Section to display movie results-->
-		<div class="row text-center" id="movie-display"></div>
+        <!-- Section to display movie results-->
+        <div class="row text-center" id="movie-display"></div>
 
-		<div id="move-top">
-			<a href="#"><img src="assets/images/backtotop.png"></a> 
-		</div>
+        <!--Button move to the top -->
+        <div id="move-top">
+            <a href="#"><img src="assets/images/backtotop.png"></a>
+        </div>
+    </div>
 
-	</div>
-	
-	<!-- Map and Footer-->
-	<div class="container-fluid footer">
-				
-		<!-- Section for displaying map -->
-		<div class="row hidden-xs text-center map-section">
-			<h3>Users across the world</h3>
-			<br>
-	        <div id="map"></div>      
-		</div>
-	
-		<!-- Footer -->
-		<div class="row copyright-text">
-			
-			<div class="logo-image">
-				<img src="assets/images/microsoft.png" class="api-logo">
-				<img src="assets/images/google.png" class="api-logo">			
-				<img src="assets/images/tmdb.png" class="api-logo">				
-				<img src="assets/images/iplogo.png" class="api-logo">
-			</div>
+    <!-- Map and Footer-->
+    <div class="container-fluid footer">
 
-			<p>Copyright &copy; 2017 REMY Inc.<br>
-			<span>This product uses the TMDb API but is not endorsed or certified by TMDb.</span></p>
+        <!-- Section for displaying map -->
+        <div class="row hidden-xs text-center map-section">
+            <h3>Users across the world</h3>
+            <br>
+            <div id="map"></div>
+        </div>
 
-		</div>
+        <!-- Footer -->
+        <div class="row copyright-text">
+            <div class="logo-image">
+                <img src="assets/images/microsoft.png" class="api-logo">
+                <img src="assets/images/google.png" class="api-logo">
+                <img src="assets/images/tmdb.png" class="api-logo">
+                <img src="assets/images/iplogo.png" class="api-logo">
+            </div>
+            <p>Copyright &copy; 2017 REMY Inc.<br>
+                <span>This product uses the TMDb API but is not endorsed or certified by TMDb.</span></p>
+        </div>
+    </div>
 
-	</div>
-
-	<script type="text/javascript" src="assets/javascript/pikyfilm.js" ></script>
-
-	<!-- Google maps Api link. -->
-	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZmjC7S9PqTw3oP8TRWdnySKzt3a1s74&callback=initMap"></script>
-	
+    <!-- jQuery CDN link, moment.js, Firebase Reference and Google maps API link -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script type="text/javascript" src="assets/javascript/pikyfilm.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZmjC7S9PqTw3oP8TRWdnySKzt3a1s74&callback=initMap"></script>
 </body>
+
 </html>
