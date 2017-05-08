@@ -1,7 +1,5 @@
 # PikyFilm
 
-![logo](/screenshots/PikyFilmLogo.png| width=200)
-
 This application allows the user to input a picture (.png, .jpg, .bmp, .gif) and returns back movie suggestions based on the estimated age of the user's picture.  The user simply upload a photo from his or her computer. If the user is on a smartphone, he or she can also take a selfie. The app returns back 6 movie suggestions based on the suggested age of the user.
 
 If the user is using a desktop computer/laptop, then he or she can see a map of world of people using it. 
@@ -26,10 +24,10 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 
 ## Screenshots
 Home page
-![Home page](/screenshots/PikyFilmHome.png?raw=true)
+![Home page](/screenshots/PikyFilmHome.png)
 
 Result page
-![Result page](/screenshots/PikyFilmResult.png?raw=true)
+![Result page](/screenshots/PikyFilmResult.png)
 
 ## Developers
 
