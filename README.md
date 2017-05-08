@@ -23,10 +23,13 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 * Google fonts
 
 ## Screenshots
-Home page
+
+### Home page
+
 ![Home page](/screenshots/PikyFilmHome.png)
 
-Result page
+### Result page
+
 ![Result page](/screenshots/PikyFilmResult.png)
 
 ## Developers
