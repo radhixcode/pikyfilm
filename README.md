@@ -12,6 +12,9 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 - [Acknowledgements](#acknowledgements)
 
 ## Technologies used
+* HTML5
+* CSS3
+* Javascript
 * jQuery
 * Moment.js
 * Firebase
