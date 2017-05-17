@@ -6,10 +6,14 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 
 ## Table of Contents
 
+- [Website](#website)
 - [Technologies used](#technologies-used)
-- [Screenshots](#screenshots)
+- [Screen record](#screen-record)
 - [Developers](#developers)
 - [Acknowledgements](#acknowledgements)
+
+## Website
+    [https://radhika-sivarajan.github.io/PikyFilm/](https://radhika-sivarajan.github.io/PikyFilm/)
 
 ## Technologies used
 * HTML5
@@ -25,15 +29,9 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 * Animate CSS
 * Google fonts
 
-## Screenshots
+## Screen record
 
-### Home page
-
-![Home page](/screenshots/PikyFilmHome.png)
-
-### Result page
-
-![Result page](/screenshots/PikyFilmResult.png)
+![Home page](/screenshots/PikyFilmHome.gif)
 
 ## Developers
 
