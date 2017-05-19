@@ -13,7 +13,7 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 - [Acknowledgements](#acknowledgements)
 
 ## Website
-    [https://radhika-sivarajan.github.io/PikyFilm/](https://radhika-sivarajan.github.io/PikyFilm/)
+[https://radhika-sivarajan.github.io/PikyFilm/](https://radhika-sivarajan.github.io/PikyFilm/)
 
 ## Technologies used
 * HTML5
@@ -41,3 +41,5 @@ If the user is using a desktop computer/laptop, then he or she can see a map of 
 [Yousra Elbana](https://github.com/Yousrat)
 
 ## Acknowledgements
+
+We would like to thank our instructors: George and Brandon, for their guidence and knowledge. As well as our TAs: Felipe and Travis for their assistence and patience in explaining and debugging.
