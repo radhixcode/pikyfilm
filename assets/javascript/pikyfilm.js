@@ -113,10 +113,13 @@ function detectAgeFromImageData(imageDataBlob) {
         } else {
             $('.message').addClass("error").html("No face detected");
         }
-    }).fail(function() {
-        alert("error");
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        // Display error message.
+        var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+        errorString += (jqXHR.responseText === "") ? "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+            jQuery.parseJSON(jqXHR.responseText).message : jQuery.parseJSON(jqXHR.responseText).error.message;
+        alert(errorString);
     });
-
 }
 
 
