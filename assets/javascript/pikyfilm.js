@@ -80,9 +80,9 @@ function detectAgeFromImageData(imageDataBlob) {
         method: "POST",
         headers: {
             "Content-Type": "application/octet-stream",
-            "Ocp-Apim-Subscription-Key": "0ef6103744a14f9591f2708a965373b3"
+            "Ocp-Apim-Subscription-Key": "f98dcf1411db43b8a188dd56c9e086c4"
         },
-        url: "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),
+        url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),        
         processData: false,
         data: imageDataBlob
 
@@ -252,7 +252,6 @@ function initMap() {
 //Retrieve city names from DB and send for conversion into Map Coordinates
 data.ref().child("cities").on("value", function(snapshot) {
     var data = snapshot.val();
-    console.log(data);
     for (prop in data) {
         cityNameToCoordinates(prop);
     }
