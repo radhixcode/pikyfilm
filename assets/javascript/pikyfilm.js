@@ -80,7 +80,7 @@ function detectAgeFromImageData(imageDataBlob) {
         method: "POST",
         headers: {
             "Content-Type": "application/octet-stream",
-            "Ocp-Apim-Subscription-Key": "f98dcf1411db43b8a188dd56c9e086c4"
+            "Ocp-Apim-Subscription-Key": "a4687a11db18427f97d233a76c9ba08b"
         },
         url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),        
         processData: false,
